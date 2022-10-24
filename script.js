@@ -20,6 +20,7 @@ Object.values(questions).map((question, i) => {
   question.addEventListener("click", onClickQuestion);
   question.firstElementChild.innerText = faq[i].question;
   if (i === 0) {
+    question.firstElementChild.classList.add("rotate");
     question.lastElementChild.innerText = faq[i].answer;
   }
 });
