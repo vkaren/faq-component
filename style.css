@@ -13,6 +13,7 @@ body {
 }
 h1 {
   font-size: 1.7em;
+  text-align: center;
   color: #f47c58;
 }
 .question {
@@ -39,6 +40,21 @@ h1 {
   border-radius: 5px;
   background: #fefefd;
   cursor: pointer;
+  height: 3em;
+  transition: height 1s linear;
+}
+.questions div {
+  position: relative;
+  top: -35px;
+  opacity: 0;
+  transition: all 1s linear;
+}
+.questions.revealed {
+  height: 6em;
+}
+.questions .revealed {
+  opacity: 1;
+  top: 0;
 }
 .question::before {
   content: url(./icon-arrow-down.svg);
@@ -49,8 +65,11 @@ h1 {
   transform: rotate(-90deg);
 }
 
-@media (max-device-width: 600px) {
+@media (max-device-width: 700px) {
   .faq {
     width: 70%;
+  }
+  .questions.revealed {
+    height: 8em;
   }
 }
