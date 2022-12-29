@@ -17,17 +17,16 @@ const faq = [
   },
 ];
 
-const questions = document.getElementsByClassName("questions");
+const questions = document.getElementsByClassName("question-box");
 
 Object.values(questions).map((question, i) => {
   question.id = i;
   question.addEventListener("click", onClickQuestion);
-  question.firstElementChild.innerText = faq[i].question;
+  question.firstElementChild.children[0].innerText = faq[i].question;
 
   if (faq[i].open) {
     question.classList.add("revealed");
     question.firstElementChild.classList.add("rotate");
-    question.lastElementChild.classList.add("revealed");
     question.lastElementChild.children[0].innerText = faq[i].answer;
   }
 });
@@ -40,14 +39,12 @@ function onClickQuestion(event) {
 
     curr.classList.remove("revealed");
     curr.firstElementChild.classList.remove("rotate");
-    curr.lastElementChild.classList.remove("revealed");
     curr.lastElementChild.children[0].innerText = "";
   } else {
     faq[curr.id].open = true;
 
     curr.classList.add("revealed");
     curr.firstElementChild.classList.add("rotate");
-    curr.lastElementChild.classList.add("revealed");
     curr.lastElementChild.children[0].innerText = faq[curr.id].answer;
   }
 }
